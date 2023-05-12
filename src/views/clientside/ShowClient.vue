@@ -1,19 +1,20 @@
 <template>
-    <div v-for="(produk,index) in products" :key="index" class="box-c">
-        <div class="row g-0">
-            <div class="col">
-                <div class="card-body-profil">
-                    <h3 class="card-title font-pejabat">{{ produk.nama_produk }}</h3>
-                    <h4>harga :</h4>
-                    <h5 >{{produk.harga}}</h5>
-                    <h4>ukuran :</h4>
-                    <h5 >{{produk.ukuran}}</h5>
-                    <h4>kategori :</h4>
-                    <h5 >{{produk.kategori}}</h5>
-                    <h4 >Jenis :</h4>
-                    <h5 >{{produk.jenis}}</h5>
-                </div>
-            </div>
+    <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">{{ produk.nama_produk }}</div>
+                            <h4>harga :</h4>
+                            <h5 >{{produk.harga}}</h5>
+                            <h4>ukuran :</h4>
+                            <h5 >{{produk.ukuran}}</h5>
+                            <h4>kategori :</h4>
+                            <h5 >{{produk.kategori}}</h5>
+                            <h5 >{{produk.jenis}}</h5>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
         </div>
     </div>
 </template>
@@ -51,5 +52,4 @@ export default {
     }
 
 }
-
 </script>
