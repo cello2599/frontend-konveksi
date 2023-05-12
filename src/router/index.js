@@ -11,12 +11,6 @@ const routes = [
         name: 'clientside.show',
         component: () => import('../views/clientside/ShowClient.vue')
     },
-    {
-        path: '/index/produk',
-        name: 'clientside.index.produk',
-        component: () => import('../views/serverside/IndexProduk.vue')
-    },
-
 ];
 
 const router = createRouter({
