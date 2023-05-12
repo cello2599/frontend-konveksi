@@ -26,17 +26,23 @@ export default {
     setup(){
         //reactive data
         const products = ref([]);
+        //get token
+        const token = localStorage.getItem('access_token');
 
-        onMounted(() => {
+        onMounted( async() => {
+            if(token){
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             //get data from endpoint api
-            axios.get('http://127.0.0.1:8000/api/produk/client')
-
-            .then((result) => {
-                products.value = result.data.data;
-            }).catch((err) => {
+            try{
+                const response = await axios.get('http://127.0.0.1:8000/api/produk');
+                products.value = response.data.data;
+                console.log("Token Authenticated");
+            }catch(err){
                 console.log(err);
-            });
-
+            }
+            }else{
+                console.log("Token Not Found");
+            }
         });
 
         return {

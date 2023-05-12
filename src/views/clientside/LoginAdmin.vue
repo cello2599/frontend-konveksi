@@ -41,19 +41,14 @@
       
                 <div class="text-center text-lg-start mt-4 pt-2">
                   <button type="submit" class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                    Login
+                  </button>
                   <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                       class="link-danger">Register</a></p>
                 </div>
-                
       
               </form>
-              <div class="text-center text-lg-start mt-4 pt-2">
-                  <RouterLink :to= "{name : 'clientside.show'}" type="button" class="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;">show data
-                </RouterLink>
-                
-                </div>
             </div>
           </div>
         </div>
@@ -109,7 +104,7 @@
         const token = response.data;
         localStorage.setItem('access_token', token);
         // Mengarahkan pengguna ke halaman yang memiliki middleware
-        this.$router.push({ name: 'clientside.index.produk' });
+        this.$router.push({ name: 'clientside.show' });
       })
       .catch(error => {
         this.error = error.response.data.message;
