@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from "vue-router"
 
 const routes = [
     {
-        path: '/login',
-        name: 'clientside.login',
+        path: '/',
+        name: 'login',
         component: () => import('../views/clientside/LoginAdmin.vue')
     },
     {
