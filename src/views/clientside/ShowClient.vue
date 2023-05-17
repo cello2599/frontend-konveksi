@@ -1,8 +1,8 @@
 <template>
     <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem;">Create</span>
-            
-        
+            <!-- <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem;">Create</span> -->
+            <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded tombol2" style="margin-left: 20rem;">Create</button> -->
+           <button class="tombol1"> Create </button> 
         
     <div class="card">
     <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg card-produk" >
@@ -93,5 +93,25 @@ export default {
     }
     .inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2{
         text-transform: uppercase;
+    }
+
+    .tombol1{
+        margin-left: 20rem;
+        font-family: sans-serif;
+        font-size: 15px;
+        background: #22a4cf;
+        color: white;
+        border: white 3px solid;
+        border-radius: 5px;
+        padding: 12px 20px;
+        margin-top: 10px;
+    }
+
+    button:hover{
+        opacity:0.9;
+    }
+
+    .tombol2{
+        
     }
 </style>
