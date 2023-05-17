@@ -1,4 +1,9 @@
 <template>
+    <div class="px-6 pt-4 pb-2">
+            <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem;">Create</span>
+            
+        
+        
     <div class="card">
     <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg card-produk" >
         
@@ -19,6 +24,7 @@
         </div>
     </div>
     </div>
+</div>
    
 </template>
 
