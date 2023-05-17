@@ -1,5 +1,6 @@
 <template>
-    <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg" style="padding-top: 10px;">
+    <div class="card">
+    <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg card-produk" >
         
          <img :src="'http://127.0.0.1:8000/storage/images/' + produk.gambar" />
         <div class="px-6 py-4">
@@ -16,6 +17,7 @@
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: capitalize;">{{produk.kategori}}</span>
         
         </div>
+    </div>
     </div>
    
 </template>
@@ -57,3 +59,33 @@ export default {
 
 }
 </script>
+
+<style scoped>
+    .card{
+        padding-top: 10px;
+        margin-left: 17rem;
+        margin-bottom: 3rem;
+        display:flex;
+
+    }
+    .card-produk{
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+        width: 18rem;
+        height: 30rem;
+    }
+
+    .rounded{
+        border-radius: 1.25rem;
+    }
+    .img{
+        width: 100%;
+        height: 100%;
+    }
+    .font-bold text-xl mb-2{
+        text-transform: uppercase;
+    }
+    .inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2{
+        text-transform: uppercase;
+    }
+</style>

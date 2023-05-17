@@ -1,11 +1,15 @@
 <template>
-  <router-view></router-view>
+    <NavbarSamping />
+    <router-view></router-view>
 </template>
 
 <script>
+import NavbarSamping from './components/NavbarSamping.vue'
 
 export default {
   name: 'App',
+  components: { NavbarSamping
+  },
 }
 </script>
 
@@ -19,5 +23,7 @@ export default {
   margin-top: 60px;
   margin-right: auto;
   margin-left: auto;
+  column-gap: 3.5rem;
+  row-gap: 3rem;
 }
 </style>
