@@ -100,4 +100,24 @@ export default {
     .inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2{
         text-transform: uppercase;
     }
+
+    .tombol1{
+        margin-left: 20rem;
+        font-family: sans-serif;
+        font-size: 15px;
+        background: #22a4cf;
+        color: white;
+        border: white 3px solid;
+        border-radius: 5px;
+        padding: 12px 20px;
+        margin-top: 10px;
+    }
+
+    button:hover{
+        opacity:0.9;
+    }
+
+    .tombol2{
+        
+    }
 </style>
