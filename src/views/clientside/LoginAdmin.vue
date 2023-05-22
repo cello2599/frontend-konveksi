@@ -63,6 +63,7 @@
     </div>
   </div>
 </section>
+
 </template>
   
   <script>
@@ -88,7 +89,7 @@
         const token = response.data;
         localStorage.setItem('access_token', token);
         // Mengarahkan pengguna ke halaman yang memiliki middleware
-        this.$router.push({ name: 'clientside.show' });
+        this.$router.push({ name: 'ShowProduk' });
       })
       .catch(error => {
         this.error = error.response.data.message;

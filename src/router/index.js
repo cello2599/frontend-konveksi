@@ -8,8 +8,13 @@ const routes = [
     },
     {
         path: '/show',
-        name: 'clientside.show',
+        name: 'ShowProduk',
         component: () => import('../views/clientside/ShowClient.vue')
+    },
+    {
+        path: '/create',
+        name: 'CreateProduk',
+        component: () => import('../views/clientside/CreateProduk.vue')
     },
 ];
 

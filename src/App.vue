@@ -1,15 +1,12 @@
 <template>
-    <NavbarSamping />
-    <router-view></router-view>
+          <router-view></router-view>
 </template>
 
 <script>
-import NavbarSamping from './components/NavbarSamping.vue'
+//import NavbarSamping from './components/NavbarSamping.vue'
 
 export default {
-  name: 'App',
-  components: { NavbarSamping
-  },
+  name: 'App'
 }
 </script>
 
