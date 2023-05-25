@@ -98,16 +98,31 @@ export default {
         }
 
         function update(){
-            axios.post('http://127.0.0.1:8000/api/produk/update/' + route.params.id,
-            produk
-            )
-            .then((result) => {
-                console.log(result.data);
-                router.push({name: 'ShowProduk'});
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+            if(!token){
+                router.push({name: 'login'});
+            }
+            else{
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                try{
+                        const formData = new FormData();
+                        formData.append('file', produk.gambar);
+                        formData.append('nama_produk', produk.nama_produk);
+                        formData.append('harga', produk.harga);
+                        formData.append('id_ukuran', produk.id_ukuran);
+                        formData.append('id_kategori', produk.id_kategori);
+                        axios.post('http://127.0.0.1:8000/api/produk/update/' + route.params.id,formData)
+                        .then((result) => {
+                            console.log(result.data);
+                            router.push({ name: 'ShowProduk' });
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                }
+                catch(error){
+                    console.log(error);
+                }
+            }
 
         }
 
