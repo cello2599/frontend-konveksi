@@ -4,9 +4,6 @@
     </div>
     <div class="px-6 pt-4 pb-2">
             <RouterLink :to="{name :'CreateProduk'}" class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem;">Create</RouterLink>
-            
-        
-        
     <div class="card">
     <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg card-produk" >
         
@@ -15,16 +12,14 @@
             <div class="font-bold text-xl mb-2" style="text-transform: uppercase;">{{ produk.nama_produk }}</div>
                             <!-- <h4>Rp. </h4> -->
                             <h5>Rp. {{produk.harga}}</h5>
-                            <!-- <h4>ukuran :</h4> -->
-                            <!-- <h5 >{{produk.ukuran}}</h5> -->
-                            <!-- <h4>kategori :</h4> -->
-                            <!-- <h5 >{{produk.kategori}}</h5> -->
         </div>
         <div class="px-6 pt-4 pb-2">
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase;">{{produk.ukuran}}</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: capitalize;">{{produk.kategori}}</span>
-        
         </div>
+        <RouterLink :to="{name : 'EditProduk', params:{id : produk.id_produk}}">
+            <i class="fa-solid fa-pen bg-green-600 text-white py-2 px-4 rounded-lg mt-2">Edit</i>
+        </RouterLink>
     </div>
     </div>
 </div>
