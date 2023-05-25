@@ -20,12 +20,12 @@
 
                             <div class="form-group">
                                 <p><label for="genre">ID Ukuran</label></p>
-                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="produk.ukuran" required></p>
+                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="produk.id_ukuran" required></p>
                             </div>
 
                             <div class="form-group">
                                 <p><label for="genre">ID Kategori</label></p>
-                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="produk.kategori" required></p>
+                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="produk.id_kategori" required></p>
                             </div>
 
                             <div class="form-group">
@@ -53,14 +53,14 @@ export default {
         let produk = reactive( {
             nama_produk: '',
             harga: '',
-            ukuran: '',
-            kategori: '',
+            id_ukuran: '',
+            id_kategori: '',
             gambar: '',
-            previewimage: '',
-            urlimage:'http://127.0.0.1:8000/storage/images/'
+            previewimage: ''
         });
 
         const router = useRouter();
+        const urlimage = 'http://127.0.0.1:8000/storage/images/'
         const route = useRoute();
         const token = localStorage.getItem('access_token');
 
@@ -75,10 +75,10 @@ export default {
                         .then((result) => {
                             produk.nama_produk = result.data.data.nama_produk;
                             produk.harga = result.data.data.harga;
-                            produk.ukuran = result.data.data.id_ukuran;
-                            produk.kategori = result.data.data.id_kategori;
+                            produk.id_ukuran = result.data.data.id_ukuran;
+                            produk.id_kategori = result.data.data.id_kategori;
                             produk.gambar = result.data.data.gambar;
-                            produk.previewimage = produk.urlimage + result.data.data.gambar;
+                            produk.previewimage = urlimage + result.data.data.gambar;
                         })
                         .catch((error) => {
                             console.log(error);
