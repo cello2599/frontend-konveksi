@@ -1,9 +1,12 @@
 <template>
     <div>
-    <NavbarSamping />
+        <NavbarSamping/>
     </div>
     <div class="px-6 pt-4 pb-2">
-            <RouterLink :to="{name :'CreateProduk'}" class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem;">Create</RouterLink>
+            <RouterLink :to="{name : 'CreateProduk'}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem; margin-right:70%;">Create</RouterLink>
+            
+        
+        
     <div class="card">
     <div v-for="(produk,index) in products" :key="index" class="max-w-sm rounded overflow-hidden shadow-lg card-produk" >
         
@@ -12,13 +15,19 @@
             <div class="font-bold text-xl mb-2" style="text-transform: uppercase;">{{ produk.nama_produk }}</div>
                             <!-- <h4>Rp. </h4> -->
                             <h5>Rp. {{produk.harga}}</h5>
+                            <!-- <h4>ukuran :</h4> -->
+                            <!-- <h5 >{{produk.ukuran}}</h5> -->
+                            <!-- <h4>kategori :</h4> -->
+                            <!-- <h5 >{{produk.kategori}}</h5> -->
         </div>
         <div class="px-6 pt-4 pb-2">
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase;">{{produk.ukuran}}</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: capitalize;">{{produk.kategori}}</span>
+        
         </div>
         <RouterLink :to="{name : 'EditProduk', params:{id : produk.id_produk}}">
-            <i class="fa-solid fa-pen bg-green-600 text-white py-2 px-4 rounded-lg mt-2">Edit</i>
+            <i class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Edit</i>
+
         </RouterLink>
     </div>
     </div>
@@ -28,7 +37,7 @@
 
 <script>
 import axios from 'axios'
-import {onMounted, ref} from 'vue'
+import { ref, onMounted } from 'vue'
 import NavbarSamping from '@/components/NavbarSamping.vue'
 
 export default {
@@ -38,6 +47,7 @@ export default {
         //get token
         const token = localStorage.getItem('access_token');
         //image path
+        //const imagepath = ref('src/assets/images/');
 
         onMounted( async() => {
             if(token){
@@ -72,6 +82,7 @@ export default {
         padding-top: 10px;
         margin-left: 17rem;
         margin-bottom: 3rem;
+        margin-top: 2rem;
         display:flex;
 
     }
@@ -94,25 +105,5 @@ export default {
     }
     .inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2{
         text-transform: uppercase;
-    }
-
-    .tombol1{
-        margin-left: 20rem;
-        font-family: sans-serif;
-        font-size: 15px;
-        background: #22a4cf;
-        color: white;
-        border: white 3px solid;
-        border-radius: 5px;
-        padding: 12px 20px;
-        margin-top: 10px;
-    }
-
-    button:hover{
-        opacity:0.9;
-    }
-
-    .tombol2{
-        
     }
 </style>

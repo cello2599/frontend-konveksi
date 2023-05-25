@@ -2,7 +2,7 @@
     <div>
         <NavbarSamping/>
     </div>
-    <div class="w-[22rem] h-[32rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-purple-800 border mb-5 text-center">
+    <div class="edit w-[30rem] h-[53rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-purple-800 border mb-5 text-center">
                 <div class="mt-1 ">
                 <p class="text-center text-xl font-medium m-auto">Edit Produk</p>
                 <div>
@@ -124,3 +124,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.edit{
+    
+    margin:auto;
+    margin-bottom: 10px;
+}
+</style>
