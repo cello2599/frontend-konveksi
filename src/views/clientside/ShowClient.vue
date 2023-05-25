@@ -31,6 +31,8 @@ import axios from 'axios'
 import {onMounted, ref} from 'vue'
 import NavbarSamping from '@/components/NavbarSamping.vue'
 
+
+
 export default {
     setup(){
         //reactive data
