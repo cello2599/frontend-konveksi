@@ -30,7 +30,7 @@
 
                             <div class="form-group">
                                 <p><label for="gambar">Gambar</label></p>
-                                <img :src=produk.previewimage v-if="produk.previewimage"/>
+                                <img :src="produk.previewimage" v-if="produk.previewimage"/>
                                 <p><input class="w-full mx-auto outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500  h-9" type="file" v-on:change="image" accept=".jpeg,.jpg,.png"></p>
                             </div>
                             <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah Produk</button>
@@ -57,6 +57,7 @@ export default {
             kategori: '',
             gambar: '',
             previewimage: '',
+            urlimage:'http://127.0.0.1:8000/storage/images/'
         });
 
         const router = useRouter();
@@ -79,7 +80,9 @@ export default {
                             produk.ukuran = result.data.data.id_ukuran;
                             produk.kategori = result.data.data.id_kategori;
                             produk.gambar = result.data.data.gambar;
-                            //produk.previewimage = result.data.data.gambar;
+                            console.log(produk.gambar);
+                            produk.previewimage = produk.urlimage + result.data.data.gambar;
+                            console.log(produk.previewimage);
                         })
                         .catch((error) => {
                             console.log(error);
@@ -95,7 +98,7 @@ export default {
         function image(e){
             const file = e.target.files[0];
             produk.gambar = file;
-            produk.previewimage = 'http://127.0.0.1:8000/storage/images/' + produk.gambar;
+            produk.previewimage = URL.createObjectURL(e.target.files[0]);
         }
 
         function update(){
