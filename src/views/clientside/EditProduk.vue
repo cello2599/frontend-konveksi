@@ -71,8 +71,6 @@ export default {
             else{
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
                 try{
-                    console.log(route.params.id);
-                    console.log(produk);
                     axios.get('http://127.0.0.1:8000/api/produk/' + route.params.id)
                         .then((result) => {
                             produk.nama_produk = result.data.data.nama_produk;
@@ -80,9 +78,7 @@ export default {
                             produk.ukuran = result.data.data.id_ukuran;
                             produk.kategori = result.data.data.id_kategori;
                             produk.gambar = result.data.data.gambar;
-                            console.log(produk.gambar);
                             produk.previewimage = produk.urlimage + result.data.data.gambar;
-                            console.log(produk.previewimage);
                         })
                         .catch((error) => {
                             console.log(error);
