@@ -21,6 +21,11 @@ const routes = [
         name: 'EditProduk',
         component: () => import('../views/clientside/EditProduk.vue')
     },
+    {
+        path: '/transaksi',
+        name: 'Transaksi',
+        component: () => import('../views/clientside/TransaksiProduk.vue')
+    },
 ];
 
 const router = createRouter({

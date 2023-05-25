@@ -2,7 +2,7 @@
     <div>
         <NavbarSamping/>
     </div>
-    <div class="w-[22rem] h-[32rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-purple-800 border mb-5 text-center">
+    <div class=" create w-[30rem] h-[50rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
                 <div class="mt-1 ">
                 <p class="text-center text-xl font-medium m-auto"> Tambah Produk</p>
                 <div>
@@ -99,3 +99,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.create{
+    
+    margin:auto;
+    margin-bottom: 50px;
+}
+</style>
