@@ -102,21 +102,26 @@ export default {
         margin-bottom: 3rem;
         margin-top: 2rem;
         display:flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
 
     }
     .card-produk{
         margin-left: 2rem;
         margin-bottom: 2rem;
-        width: 18rem;
-        height: 30rem;
+        height: 35rem;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 10px;
     }
 
     .rounded{
         border-radius: 1.25rem;
     }
     .img{
-        width: 100%;
-        height: 100%;
+        width: 50%;
+        height: 50%;
     }
     .font-bold text-xl mb-2{
         text-transform: uppercase;

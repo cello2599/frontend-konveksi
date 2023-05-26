@@ -24,8 +24,7 @@
                <span class="flex-1 ml-3 whitespace-nowrap text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Show</span>
             </RouterLink>
          </li>
-
-         
+      
 
          <li>
             <RouterLink :to="{name : 'Transaksi'}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -36,7 +35,6 @@
                <span class="flex-1 ml-3 whitespace-nowrap text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Transaksi</span>
             </RouterLink>
          </li>
-
          <li>
             <RouterLink :to="{name : 'login'}" @click.prevent='logout' class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 2 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
