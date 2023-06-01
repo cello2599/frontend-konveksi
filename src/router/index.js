@@ -36,6 +36,12 @@ const routes = [{
         component: () =>
             import ('../views/clientside/ShowCustomer.vue')
     },
+    {
+        path: '/createcustomer',
+        name: 'CreateCustomer',
+        component: () =>
+            import ('../views/clientside/CreateCustomer.vue')
+    },
 ];
 
 const router = createRouter({

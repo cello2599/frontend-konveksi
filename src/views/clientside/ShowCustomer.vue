@@ -3,7 +3,7 @@
         <NavbarSamping/>
     </div>
     
-    <RouterLink :to="{name : 'CreateProduk'}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem; margin-right:70%;">Create</RouterLink>
+    <RouterLink :to="{name : 'CreateCustomer'}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem; margin-right:70%;">Create</RouterLink>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-9/12 text-sm text-left text-blue-100 dark:text-blue-100" style="margin-left: 21%; margin-top: 2%;">
         <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">

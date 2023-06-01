@@ -20,12 +20,21 @@
 
                             <div class="form-group">
                                 <p><label for="genre">ID Ukuran</label></p>
-                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="id_ukuran" required></p>
+                                <select v-model="id_ukuran">
+                                        <option v-for="(ukuran, index) in ukurans" :value="ukuran.id_ukuran" :key="index">
+                                            {{ ukuran.id_ukuran }} - {{ ukuran.ukuran }}
+                                        </option>
+                                 </select>
+                                <span class="text-red-500" v-if="errors && errors.id_ukuran">Pilihan : {{ id_ukuran }}</span>
                             </div>
 
                             <div class="form-group">
                                 <p><label for="genre">ID Kategori</label></p>
-                                <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" v-model="id_kategori" required></p>
+                                <select v-model="id_kategori">
+                                        <option v-for="(kategori, index) in kategoris" :value="kategori.id_kategori" :key="index">
+                                            {{ kategori.id_kategori }} - {{ kategori.kategori_produk }}
+                                        </option>
+                                 </select>
                             </div>
 
                             <div class="form-group">
@@ -44,6 +53,7 @@
 
 <script>
 import NavbarSamping from '@/components/NavbarSamping.vue';
+import { ref, onMounted } from 'vue'
 import axios from 'axios';
 
 export default {
@@ -55,7 +65,24 @@ export default {
             id_kategori: '',
             gambar: null,
             previewimage: '',
+            errors: {},
         }
+    },
+    setup(){
+        const ukurans = ref([]);
+        const kategoris = ref([]);
+        onMounted(async () => {
+            const response = await axios.get('http://127.0.0.1:8000/api/ukuran');
+            ukurans.value = response.data;
+            
+            const response2 = await axios.get('http://127.0.0.1:8000/api/kategori');
+            kategoris.value = response2.data;
+        });
+
+        return {
+            ukurans,
+            kategoris,
+        };
     },
     methods :{
         create() {
