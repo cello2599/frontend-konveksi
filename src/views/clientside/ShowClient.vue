@@ -60,7 +60,7 @@ export default {
             try{
                 const response = await axios.get('http://127.0.0.1:8000/api/produk');
                 products.value = response.data.data;
-                console.log("Token Authenticated");
+                console.log("Token Authenticated",token);
             }catch(err){
                 console.log(err);
             }
@@ -109,9 +109,9 @@ export default {
     .card-produk{
         margin-left: 2rem;
         margin-bottom: 2rem;
-        height: 35rem;
+        height: auto;
         width: 200px;
-        border: 1px solid #ccc;
+        border: 1px solid #6952ec;
         border-radius: 2px;
         padding: 10px;
     }
@@ -120,8 +120,9 @@ export default {
         border-radius: 1.25rem;
     }
     .img{
-        width: 50%;
-        height: 50%;
+        width: auto;
+        height: auto;
+        border-radius: 1.25rem;
     }
     .font-bold text-xl mb-2{
         text-transform: uppercase;
