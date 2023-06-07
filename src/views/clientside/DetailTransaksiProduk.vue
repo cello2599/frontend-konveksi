@@ -30,9 +30,33 @@
   
           <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah Transaksi</button>
         </form>
+
+        <div class="align-middle inline-block min-w-40 shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+        <table v-if="items.length > 0">
+              <thead>
+                <tr>
+                  <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">ID Produk</th>
+                  <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Jumlah</th>
+                  <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in items" :key="index">
+                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.id_produk }}</td>
+                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.jumlah }}</td>
+                  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                    <button @click="removeItem(index)" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+            <div v-else>
+              <p>Belum ada produk yang ditambahkan</p>
+              </div>
+          </div>
+        </div>
     </div>
-  
-    </div>
+
   </template>
   
 
@@ -70,6 +94,10 @@ methods: {
     addItem() {
       this.items.push({ id_produk: "", jumlah: "" });
       },
+
+    removeItem(index) {
+      this.items.splice(index, 1);
+    },
     create() {
 
       const data = {
