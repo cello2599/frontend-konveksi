@@ -2,7 +2,7 @@
     <div>
       <NavbarSamping />
   
-      <div class="create w-[40rem] h-[30rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
+      <div class="create w-fixed h-fixed p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-left">
         <p class="text-center text-xl font-medium m-auto">Detail Transaksi Baru</p>
 
         
@@ -24,8 +24,8 @@
               <p><input rows="5" :id="'jumlah_' + index" class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" placeholder="jumlah Produk" v-model="item.jumlah" required></p>
             </div>
           </div>
-
-          <button type="button" @click="addItem">Tambah Produk</button>
+          <br><br>
+          <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="button" @click="addItem">Tambah Produk</button>
               <br><br>
   
           <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah Transaksi</button>
@@ -87,6 +87,7 @@ methods: {
             // this.id_produk = [];
             // this.jumlah = [];
             alert('Transaksi Berhasil Ditambahkan');
+            this.$router.push({ name: 'Transaksi' });
           })
           .catch(error => {
             if (error.response && error.response.data && error.response.data.errors) {
@@ -114,9 +115,11 @@ components: {
     
     margin:auto;
     margin-bottom: 50px;
+    margin-left: 17rem;
+    margin-right: 2rem;
 }
 .transaksi {
-    margin-left: 10rem;
+    margin-left: 17rem;
 }
 </style>
 
