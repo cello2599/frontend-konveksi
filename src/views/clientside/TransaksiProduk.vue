@@ -20,7 +20,7 @@
             </div>
 
 
-          <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah</button>
+          <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" style="margin-top: 10px;" type="submit">Tambah</button>
         </form>
       </div>
 
