@@ -5,14 +5,17 @@
       <div class="create w-[40rem] h-[30rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
         <p class="text-center text-xl font-medium m-auto">Detail Transaksi Baru</p>
         <form @submit.prevent="create" enctype="multipart/form-data">
-                <p><label>Produk </label></p>
+
+          <div class="form-group">
+                <p><label for="id_produk">Produk </label></p>
                 <select v-model="id_produk" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option disabled value="">Pilih Produk</option>
+                  <option disabled value="">Pilih Produk</option>
                     <option v-for="(produk, produkIndex) in produks" :value="produk.id_produk" :key="produkIndex">
                         {{ produk.id_produk }} - {{ produk.nama_produk }} - {{ produk.harga }} - {{ produk.ukuran }} - {{ produk.kategori_produk }}
                     </option>
                 </select>
                 <span class="text-red-500" v-if="errors && errors.id_produk">Pilihan produk tidak valid</span>
+            </div>
             
   
           <div class="form-group">
@@ -20,7 +23,7 @@
             <p><input rows="5" class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" placeholder="jumlah Produk" v-model="jumlah" required></p>
           </div>
   
-          <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah Keranjang</button>
+          <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" style="margin-top: 10px;" type="submit">Tambah Keranjang</button>
         </form>
     </div>
   
