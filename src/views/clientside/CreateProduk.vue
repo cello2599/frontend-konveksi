@@ -79,6 +79,7 @@ export default {
             
             const response2 = await axios.get('http://127.0.0.1:8000/api/kategori');
             kategoris.value = response2.data;
+            // console.log(kategoris);
         });
 
         return {

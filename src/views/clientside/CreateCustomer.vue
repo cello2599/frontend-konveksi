@@ -57,7 +57,7 @@ export default {
     methods :{
         create() {
             const token = localStorage.getItem('access_token');
-            console.log(token);
+            // console.log(token);
             // console.log(this.gambar);
             if(token) {
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token

@@ -10,7 +10,7 @@ const routes = [{
         path: '/show',
         name: 'ShowProduk',
         component: () =>
-            import ('../views/clientside/ShowClient.vue')
+            import ('../views/clientside/ShowProduk.vue')
     },
     {
         path: '/create',
@@ -41,6 +41,13 @@ const routes = [{
         name: 'CreateCustomer',
         component: () =>
             import ('../views/clientside/CreateCustomer.vue')
+    },
+    {
+        path: '/detailTransaksi/:id_transaksi',
+        name: 'DetailTransaksi',
+        component: () =>
+            import ('../views/clientside/DetailTransaksiProduk.vue'),
+        props: true
     },
 ];
 
