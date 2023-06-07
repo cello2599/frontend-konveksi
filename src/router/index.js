@@ -50,6 +50,12 @@ const routes = [{
         props: true
     },
     {
+        path: '/editcustomer/:id_customer',
+        name: 'EditCustomer',
+        component: () =>
+            import ('../views/clientside/EditCustomer.vue')
+    },
+    {
         path: '/transaksi/:id_transaksi',
         name: 'ShowDetailTransaksi',
         component: () =>
