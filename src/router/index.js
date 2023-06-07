@@ -55,6 +55,12 @@ const routes = [{
         component: () =>
             import ('../views/clientside/EditCustomer.vue')
     },
+    {
+        path: '/transaksi/:id_transaksi',
+        name: 'ShowDetailTransaksi',
+        component: () =>
+            import ('../views/clientside/ShowDetailTransaksi.vue')
+    }
 ];
 
 const router = createRouter({
