@@ -31,7 +31,7 @@ const routes = [{
             import ('../views/clientside/TransaksiProduk.vue')
     },
     {
-        path: '/showcustomer',
+        path: '/customer',
         name: 'ShowCustomer',
         component: () =>
             import ('../views/clientside/ShowCustomer.vue')
@@ -50,7 +50,7 @@ const routes = [{
         props: true
     },
     {
-        path: '/editcustomer/:id_customer',
+        path: '/customer/:id_customer',
         name: 'EditCustomer',
         component: () =>
             import ('../views/clientside/EditCustomer.vue')

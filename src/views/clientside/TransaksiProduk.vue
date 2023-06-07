@@ -3,7 +3,7 @@
         <NavbarSamping/>
     </div>
 
-    <div class="create w-[40rem] h-[30rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
+    <div class="create w-[40rem] h-fixed p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
       <p class="text-center text-xl font-medium m-auto"> Transaksi Baru</p>
       <div>
         <form @submit.prevent="create" enctype="multipart/form-data">

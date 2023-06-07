@@ -103,9 +103,15 @@ export default {
             }
             else{
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                console.log(produk);
                 try{
                         const formData = new FormData();
-                        formData.append('file', produk.gambar);
+                        if (produk.gambar) { // Periksa apakah ada gambar yang dipilih
+                                formData.append('file', produk.gambar);
+                        }
+                        else{
+                            formData.append('file', produk.previewimage);
+                        }
                         formData.append('nama_produk', produk.nama_produk);
                         formData.append('harga', produk.harga);
                         formData.append('id_ukuran', produk.id_ukuran);
