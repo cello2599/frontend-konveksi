@@ -49,6 +49,12 @@ const routes = [{
             import ('../views/clientside/DetailTransaksiProduk.vue'),
         props: true
     },
+    {
+        path: '/transaksi/:id_transaksi',
+        name: 'ShowDetailTransaksi',
+        component: () =>
+            import ('../views/clientside/ShowDetailTransaksi.vue')
+    }
 ];
 
 const router = createRouter({

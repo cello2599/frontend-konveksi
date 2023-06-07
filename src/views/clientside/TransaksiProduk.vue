@@ -27,33 +27,32 @@
     </div>
    
 <!-- component -->
-<div class="transaksi text-center mb-4 -mt-3 table-auto p-10">
-            <table class="table-fixed text-center border-collapse w-[80%] mx-auto">
+<div class="transaksi align-middle inline-block min-w-40 shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+            <table class="min-w-40">
                 <thead>
                   <tr>
-                    <th class="border-2 border-black w-16">Nama Customer</th>
-                    <th class="border-2 border-black w-36">Alamat Customer</th>
-                    <th class="border-2 border-black w-36">Nomor Hp</th>
-                    <th class="border-2 border-black w-36 ">Admin</th>
-                    <th class="border-2 border-black w-20">Tanggal</th>
-                    <th class="border-2 border-black w-16">Total Transaksi</th>
-                    <th class="border-2 border-black w-16">Aksi</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nama Customer</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Alamat Customer</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Nomor Hp</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Admin</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Tanggal</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Total Transaksi</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Aksi</th>
                   </tr>
                 </thead>
                 
-                <tbody>
+                <tbody class="bg-white">
                   <tr v-for="(transaksi , indexTransaksi) in total_transaksi" :key="indexTransaksi">
-                    <td class="border-2 border-black">{{ transaksi.nama_customer }} </td>
-                    <td class="border-2 border-black">{{transaksi.alamat_customer}}</td>
-                    <td class="border-2 border-black max-w-md text-left">{{transaksi.no_telp}}</td>
-                    <td class="border-2 border-black max-w-md text-left">{{transaksi.admin}}</td>
-                    <td class="border-2 border-black max-w-md text-left">{{transaksi.tanggal}}</td>
-                    <td class="border-2 border-black max-w-md text-left">{{transaksi.totalTransaksi}}</td>
-                    <td class="border-2 border-black"> 
-                        <a href=""><i class="fa-solid fa-pen bg-green-600 text-white py-2 px-4 rounded-lg mt-2"> </i> </a>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ transaksi.nama_customer }} </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.alamat_customer}}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.no_telp}}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.admin}}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.tanggal}}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.totalTransaksi}}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5"> 
+                        <RouterLink :to="{name : 'ShowDetailTransaksi', params:{id_transaksi : transaksi.id_transaksi}}"><i class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"> detail</i></RouterLink>
                         <form action="" >
-                            
-                            
+                        
                             <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-lg inline-table mt-2 ">
                             <i class="fa-solid fa-trash-can"></i>
                             </button>
@@ -70,6 +69,7 @@
 import NavbarSamping from '@/components/NavbarSamping.vue'
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
+// import { RouterLink } from 'vue-router'
 
 
 export default {
@@ -151,6 +151,6 @@ components: {
     margin-bottom: 50px;
 }
 .transaksi {
-    margin-left: 10rem;
+  margin-left: 17rem;
 }
 </style>
