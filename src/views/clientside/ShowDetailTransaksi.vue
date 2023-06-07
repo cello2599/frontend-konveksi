@@ -1,57 +1,66 @@
 <template>
     <div>
-        <NavbarSamping/>
+        <NavbarSamping />
+	<div class="transaksi container p-2 mx-auto sm:p-4 dark:text-gray-100" v-if="transaksi">
+		<h2 class="mb-4 text-2xl font-semibold leading-tight">Nama</h2>
+        <p> {{ transaksi.nama_customer }}</p>
+        <h2 class="mb-4 text-2xl font-semibold leading-tight">Alamat</h2>
+        <p> {{ transaksi.alamat_customer }}</p>
+        <h2 class="mb-4 text-2xl font-semibold leading-tight">Tanggal Transaksi</h2>
+        <p> {{ transaksi.tanggal }}</p>
+        <h2 class="mb-4 text-2xl font-semibold leading-tight">Admin</h2>
+        <p> {{ transaksi.admin }}</p>
+        <h2 class="mb-4 text-2xl font-semibold leading-tight">Total Transaksi : {{ transaksi.totalTransaksi }}</h2>
+		<div class="overflow-x-auto">
+			<table class="min-w-full text-xs">
+				<thead class="dark:bg-gray-700">
+					<tr class="text-left">
+						<th class="p-3">Nama Produk</th>
+						<th class="p-3">Harga</th>
+						<th class="p-3">Jumlah</th>
+						<th class="p-3 text-right">Total Harga</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900" v-for="(produk , indexTransaksi) in transaksi.produks" :key="indexTransaksi">
+						<td class="p-3">
+							<p>{{produk.nama_produk}}</p>
+						</td>
+						<td class="p-3">
+							<p>{{ produk.harga }}</p>
+						</td>
+						<td class="p-3">
+							<p>{{ produk.jumlah }}</p>
+						</td>
+						<td class="p-3 text-right">
+							<p>{{produk.totalHarga}}</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+    <div v-else>
+      <p>Loading...</p>
     </div>
-    
-    <RouterLink :to="{name : 'CreateCustomer'}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" style="text-transform: uppercase; margin-left: 20rem; margin-right:70%;">Create</RouterLink>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-9/12 text-sm text-left text-blue-100 dark:text-blue-100" style="margin-left: 21%; margin-top: 2%;">
-        <thead class="text-xs text-white uppercase bg-blue-600 dark:text-color-blue">
-            <tr>
-                <th scope="col" class="px-6 py-3" style="text-align: center;">
-                    Nama Customer
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Alamat
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    No telepon
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-blue-500 border-b border-blue-400" v-for="(customer,index) in customers" :key="index">
-                <td scope="row" class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-                    {{ customer.nama }}
-                </td>
-                <td class="px-6 py-4 ">
-                    {{ customer.alamat }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ customer.no_telp }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ customer.email }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
-
-
 </template>
 
 <script>
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import NavbarSamping from '@/components/NavbarSamping.vue'
+import { useRoute } from 'vue-router'
 
 export default {
+    // data(){
+    //     return {
+    //         transaksi: null
+    //     }
+    // },
     setup(){
-        const customers = ref([]);
+        const transaksi = ref([]);
+        const route = useRoute();
         //get token
         const token = localStorage.getItem('access_token');
         
@@ -60,12 +69,13 @@ export default {
 
         onMounted( async() => {
             if(token){
+                console.log(token);
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             //get data from endpoint api
             try{
-                const response = await axios.get('http://127.0.0.1:8000/api/customer');
-                customers.value = response.data.data;
-                console.log("Token Found", customers.value);
+                const response = await axios.get('http://127.0.0.1:8000/api/transaksi/' + route.params.id_transaksi);
+                transaksi.value = response.data.data;
+                console.log("Token Found", transaksi.value);
             }catch(err){
                 console.log(err);
             }
@@ -75,7 +85,7 @@ export default {
         });
 
         return {
-            customers
+            transaksi
         }
     },
     components: {
@@ -87,6 +97,6 @@ export default {
 
 <style scoped>
 .transaksi {
-    margin-left: 10rem;
+    margin-left: 17rem;
 }
 </style>
