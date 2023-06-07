@@ -31,24 +31,24 @@
             <table class="table-fixed text-center border-collapse w-[80%] mx-auto">
                 <thead>
                   <tr>
-                    <th class="border-2 border-black w-16">Genre</th>
-                    <th class="border-2 border-black w-36">Judul Buku</th>
-                    <th class="border-2 border-black w-36">Judul Buku</th>
-                    <th class="border-2 border-black w-36 ">Sinopsis</th>
-                    <th class="border-2 border-black w-20">Gambar</th>
+                    <th class="border-2 border-black w-16">Nama Customer</th>
+                    <th class="border-2 border-black w-36">Alamat Customer</th>
+                    <th class="border-2 border-black w-36">Nomor Hp</th>
+                    <th class="border-2 border-black w-36 ">Admin</th>
+                    <th class="border-2 border-black w-20">Tanggal</th>
+                    <th class="border-2 border-black w-16">Total Transaksi</th>
                     <th class="border-2 border-black w-16">Aksi</th>
                   </tr>
                 </thead>
                 
                 <tbody>
-                  <tr>
-                    <td class="border-2 border-black">nama </td>
-                    <td class="border-2 border-black">alamat</td>
-                    <td class="border-2 border-black max-w-md text-left">nohp</td>
-                    <td class="border-2 border-black max-w-md text-left">nohp</td>
-                    <td class="border-2 border-black">
-                        <img src="" alt="" class="w-20 h-20 mx-auto">
-                    </td>
+                  <tr v-for="(transaksi , indexTransaksi) in total_transaksi" :key="indexTransaksi">
+                    <td class="border-2 border-black">{{ transaksi.nama_customer }} </td>
+                    <td class="border-2 border-black">{{transaksi.alamat_customer}}</td>
+                    <td class="border-2 border-black max-w-md text-left">{{transaksi.no_telp}}</td>
+                    <td class="border-2 border-black max-w-md text-left">{{transaksi.admin}}</td>
+                    <td class="border-2 border-black max-w-md text-left">{{transaksi.tanggal}}</td>
+                    <td class="border-2 border-black max-w-md text-left">{{transaksi.totalTransaksi}}</td>
                     <td class="border-2 border-black"> 
                         <a href=""><i class="fa-solid fa-pen bg-green-600 text-white py-2 px-4 rounded-lg mt-2"> </i> </a>
                         <form action="" >
@@ -82,13 +82,31 @@ export default {
   },
   setup(){
         const customers = ref([]);
+        const total_transaksi = ref([]);
+        const token = localStorage.getItem('access_token');
         onMounted(async () => {
             const response = await axios.get('http://127.0.0.1:8000/api/dropdown-customer');
             customers.value = response.data.data;
         });
 
+        onMounted(async () => {
+            if(token) {
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                try {
+                  const response = await axios.get('http://127.0.0.1:8000/api/transaksi');
+                  total_transaksi.value = response.data.data;
+
+                }
+                catch(error) {
+                    console.log(error);
+                }
+            }
+        });
+            
+
         return {
             customers,
+            total_transaksi,
         };
   },
   methods: {
