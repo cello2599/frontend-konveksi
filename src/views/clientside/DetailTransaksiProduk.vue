@@ -16,7 +16,7 @@
                 <select v-model="item.id_produk" :id="'id_produk_' + index" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option disabled value="">Pilih Produk</option>
                     <option v-for="(produk, produkIndex) in produks" :value="produk.id_produk" :key="produkIndex">
-                        {{ produk.id_produk }} - {{ produk.nama_produk }} - {{ produk.harga }} - {{ produk.ukuran }} - {{ produk.kategori_produk }}
+                        {{ produk.id_produk }} - {{ produk.nama_produk }} - {{ formatrupiah(produk.harga) }} - {{ produk.ukuran }} - {{ produk.kategori_produk }}
                     </option>
                 </select>
                 <span class="text-red-500" v-if="errors && errors[index] && errors[index].id_produk">Pilihan produk tidak valid</span>
@@ -74,9 +74,8 @@ export default {
     props: ['id_transaksi'],
   data(){
     return{
-        items: [{ id_produk: "", jumlah: "" }],
-        // id_produk: [],
-        // jumlah: [],
+        items: [{ id_produk: "", jumlah: ""}],
+        
       errors: null
     };
   },
@@ -95,7 +94,7 @@ export default {
   },
 methods: {
     addItem() {
-      this.items.push({ id_produk: "", jumlah: "" });
+      this.items.push({ id_produk: "", jumlah: ""});
       },
 
     removeItem(index) {
@@ -149,9 +148,11 @@ methods: {
       }
       
     },
-    // selesai() {
-    //   this.$router.push({ name: 'Transaksi' });
-    // },
+    formatrupiah(value) {
+            let val = (value/1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."
+            )
+            }
   },
 components: {
         NavbarSamping

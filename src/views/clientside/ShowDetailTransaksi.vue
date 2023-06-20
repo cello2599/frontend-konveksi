@@ -37,7 +37,7 @@
         <div>
 
         </div>
-			<h2 class="mb-4 text-2xl font-semibold leading-tight text-right">Total Transaksi : Rp. {{ transaksi.totalTransaksi }}</h2>
+			<h2 class="mb-4 text-2xl font-semibold leading-tight text-right">Total Transaksi : Rp. {{ formatrupiah(transaksi.totalTransaksi) }}</h2>
             <table class="w-full" style="margin-top: 2rem;">
 				<thead class="dark:bg-gray-700">
 					<tr class="text-center">
@@ -63,7 +63,7 @@
 							<p>{{ produk.jumlah }}</p>
 						</td>
 						<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-							<p>{{ formatrupiah(produk.totalHarga) }}</p>
+							<p>Rp. {{ formatrupiah(produk.totalHarga) }}</p>
 						</td>
 					</tr>
 				</tbody>

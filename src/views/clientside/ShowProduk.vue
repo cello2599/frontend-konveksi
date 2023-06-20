@@ -12,7 +12,7 @@
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2" style="text-transform: uppercase;">{{ produk.nama_produk }}</div>
                             <!-- <h4>Rp. </h4> -->
-                            <h5>Rp {{formatrupiah(produk.harga) }}</h5>
+                            <h5>Rp. {{formatrupiah(produk.harga) }}</h5>
         </div>
         <div class="px-6 pt-4 pb-2">
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" style="text-transform: uppercase;">{{produk.ukuran}}</span>
