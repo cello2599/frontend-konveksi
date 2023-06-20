@@ -21,7 +21,7 @@
 
         </div>
 		<div class="align-middle inline-block w-10/12 shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg" style="margin-top: 15px; margin-left: 17rem; margin-right: auto;">
-			<h2 class="mb-4 text-2xl font-semibold leading-tight text-right">Total Transaksi : {{ transaksi.totalTransaksi }}</h2>
+			<h2 class="mb-4 text-2xl font-semibold leading-tight text-right">Total Transaksi : Rp {{ formatrupiah(transaksi.totalTransaksi) }}</h2>
             <table class="w-full" style="margin-top: 2rem;">
 				<thead class="dark:bg-gray-700">
 					<tr class="text-center">
@@ -38,7 +38,7 @@
 							<p>{{produk.nama_produk}}</p>
 						</td>
 						<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-							<p>{{ produk.harga }}</p>
+							<p>{{ formatrupiah(produk.harga) }}</p>
 						</td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 							<p>X</p>
@@ -47,7 +47,7 @@
 							<p>{{ produk.jumlah }}</p>
 						</td>
 						<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-							<p>{{produk.totalHarga}}</p>
+							<p>{{ formatrupiah(produk.totalHarga) }}</p>
 						</td>
 					</tr>
 				</tbody>
@@ -98,6 +98,13 @@ export default {
         return {
             transaksi
         }
+    },
+    methods :{
+                formatrupiah(value) {
+            let val = (value/1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."
+            )
+            }
     },
     components: {
         NavbarSamping
