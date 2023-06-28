@@ -83,11 +83,7 @@ import NavbarSamping from '@/components/NavbarSamping.vue'
 import { useRoute } from 'vue-router'
 
 export default {
-    // data(){
-    //     return {
-    //         transaksi: null
-    //     }
-    // },
+    
     setup(){
         const transaksi = ref([]);
         const route = useRoute();

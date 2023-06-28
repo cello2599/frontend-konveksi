@@ -43,7 +43,7 @@
                 </thead>
                 
                 <tbody class="bg-white" ref="transaksiTable">
-                  <tr v-for="(transaksi , indexTransaksi) in total_transaksi" :key="indexTransaksi">
+                  <tr v-for="(transaksi , indexTransaksi) in displayedPosts" :key="indexTransaksi">
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ transaksi.nama_customer }} </td>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.alamat_customer}}</td>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{transaksi.no_telp}}</td>
@@ -56,8 +56,11 @@
                     </td>
                   </tr>
                 </tbody>
-                
               </table>
+              <div class="pagination">
+                    <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
+                    <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+                </div>
         </div>
 </template>
 
@@ -75,6 +78,8 @@ export default {
       id_transaksi: null,
       errors: null,
       searchQuery: '',
+      currentPage: 1,
+      perPage: 5,
     }
   },
   setup(){
@@ -99,13 +104,26 @@ export default {
                 }
             }
         });
-            
-
         return {
             customers,
             total_transaksi,
         };
   },
+  computed: {
+        totalPages() {
+            return Math.ceil(this.total_transaksi.length / this.perPage)
+        },
+        displayedPosts() {
+            let filterTransaksi = this.total_transaksi;
+            if (this.searchQuery) {
+                return filterTransaksi.filter((transaksi) => {
+                    return transaksi.nama_customer.toLowerCase().includes(this.searchQuery.toLowerCase())
+                }
+                );
+            }
+            return this.total_transaksi.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage)
+        }
+    },
   methods: {
     create() {
       const token = localStorage.getItem('access_token');
@@ -138,18 +156,9 @@ export default {
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."
       )
     },
-  //   filterTransaksi() {
-  //         if (this.searchQuery) {
-  //           const query = this.searchQuery.toLowerCase();
-  //           return this.total_transaksi.filter((transaksi) => {
-  //             return transaksi.nama_customer.toLowerCase().includes(query);
-  //           });
-  //         } else {
-  //           return this.total_transaksi;
-  //         }
-  // },
   //make mehod for search
     search(){
+      this.currentPage = 1;
       let filter = this.searchQuery.toUpperCase();
       let tr = this.$refs.transaksiTable.getElementsByTagName("tr");
       let td, i, txtValue;
@@ -164,7 +173,13 @@ export default {
           }
         }
       }
-    }
+    },
+    nextPage() {
+            if (this.currentPage < this.totalPages) this.currentPage++;
+        },
+    prevPage() {
+            if (this.currentPage > 1) this.currentPage--;
+        },
   },
 components: {
         NavbarSamping
@@ -181,5 +196,33 @@ components: {
 }
 .transaksi {
   margin-left: 17rem;
+}
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 50rem;
+    margin-bottom: 20px;
+}
+
+.pagination button{
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    margin-left: 5px;
+    outline: none;
+    transition: duration-300;
+    --tw-bg-opacity: 1;
+    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    transition-duration: 300ms;
 }
 </style>
