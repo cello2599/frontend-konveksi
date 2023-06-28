@@ -60,6 +60,12 @@ const routes = [{
         name: 'ShowDetailTransaksi',
         component: () =>
             import ('../views/clientside/ShowDetailTransaksi.vue')
+    },
+    {
+        path: '/grafik',
+        name: 'GrafikTransaksi',
+        component: () =>
+            import ('../views/clientside/GrafikTransaksi.vue')
     }
 ];
 
