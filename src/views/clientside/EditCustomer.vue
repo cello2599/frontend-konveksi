@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarSamping/>
+        <NavbarSamping/> 
     </div>
 
     <div class="edit w-[30rem] h-fixed p-6 ml-60 hover:drop-shadow-lg rounded-md border-purple-800 border mb-5 text-center">
@@ -29,7 +29,7 @@
                                 <p><input class="w-full pl-3 border outline-none text-gray-500 focus:text-gray-700 duration-300 transition ease-in-out focus:border-gray-500 rounded-md h-9" placeholder="Masukkan Email" v-model="customer.email" required></p>
                             </div>
 
-                            <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Tambah Customer</button>
+                            <button class="border -mt-6 bg-green-500 focus:border-black h-10 rounded-lg text-white font-semibold" type="submit">Edit Customer</button>
                         </div>
                         
                     </form>

@@ -41,11 +41,11 @@ export default {
     setup(){
         //reactive data
         const products = ref([]);
+
+        
         //get token
         const token = localStorage.getItem('access_token');
-        
-        //image path
-        //const imagepath = ref('src/assets/images/');
+       
 
         onMounted( async() => {
             if(token){

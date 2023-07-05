@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarSamping/>
+        <NavbarSamping/> 
     </div>
     <div class=" create w-[30rem] h-[50rem] p-6 ml-60 hover:drop-shadow-lg rounded-md border-blue-800 border mb-30 text-center">
                 <div class="mt-1 ">
@@ -79,7 +79,7 @@ export default {
             
             const response2 = await axios.get('http://127.0.0.1:8000/api/kategori');
             kategoris.value = response2.data;
-            // console.log(kategoris);
+            
         });
 
         return {

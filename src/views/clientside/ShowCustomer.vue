@@ -71,15 +71,25 @@ export default {
             perPage: 5,
             searchQuery: '',
         }
-    },
+    }, 
     computed: {
         totalPages() {
             return Math.ceil(this.customers.length / this.perPage)
         },
         paginatedData() {
+
+            //jika ada pencarian
+            if(this.searchQuery){
+                return this.customers.filter((customer) => {
+                    return customer.nama.toLowerCase().includes(this.searchQuery.toLowerCase())
+                })
+            }
+            else{
             const start = (this.currentPage - 1) * this.perPage
             const end = this.currentPage * this.perPage
             return this.customers.slice(start, end)
+            }
+            
         }
     },
     methods: {

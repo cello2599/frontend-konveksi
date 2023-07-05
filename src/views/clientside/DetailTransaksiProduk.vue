@@ -10,7 +10,7 @@
 
         
         <form @submit.prevent="create" class="form">
-          <div v-for="(item, index) in items" :key="index">
+          <div v-for="(item, index) in items" :key="index"> 
           <div class="form-group">
                 <p class="label-produk"><label :for="'id_produk_' + index" >Produk </label></p>
                 <select v-model="item.id_produk" :id="'id_produk_' + index" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
